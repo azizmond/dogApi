@@ -47,9 +47,22 @@ const createCard = ({id, image, name, bred_for}) => {
 const findBreed = () => {
     const nameToSearch = document.querySelector("#input").value;
     const searchBreed = breeds.find((breed) => breed.name.toLowerCase() === nameToSearch.toLowerCase());
-    console.log(searchBreed);
     const row = document.querySelector('#apiR');
     row.innerHTML = '';
+    const card =
+        `
+    <div class="col-md-4 col-12" id="${searchBreed.id}">
+        <div class="card mt-5 ml-3">
+            <img src="${searchBreed.image.url}"/>
+            <div class="card-body">
+                <h5 class="card-title">Raza: ${searchBreed.name}</h5>
+                <p class="card-text">Criado para: ${searchBreed.bred_for}</p>
+                <button onClick="del(${searchBreed.id})" class="btn btn-danger btn-block">Borrar</button>
+            </div>
+        </div>
+    </div>
+    `;
+    document.querySelector("#apiR").insertAdjacentHTML("beforeend", card);
 };
 
 const loopBreeds = (breeds) => {
