@@ -26,7 +26,7 @@ const del = (id) => {
 };
 
 //Genera una carta con cada resultado
-const createCard = ({id, image, name, bred_for}) => {
+const createCard = ({id, image, name, bred_for, breed_group, temperament, origin}) => {
     const card =
     `
     <div class="col-md-4 col-12" id="${id}">
@@ -35,6 +35,9 @@ const createCard = ({id, image, name, bred_for}) => {
             <div class="card-body">
                 <h5 class="card-title">Raza: ${name}</h5>
                 <p class="card-text">Criado para: ${bred_for}</p>
+                <p class="card-text">Grupo de raza: ${breed_group}</p>
+                <p class="card-text">Temperamento: ${temperament}</p>
+                <p class="card-text">Origen: ${origin}</p>
                 <button onClick="del(${id})" class="btn btn-danger btn-block">Borrar</button>
             </div>
         </div>
@@ -57,6 +60,9 @@ const findBreed = () => {
             <div class="card-body">
                 <h5 class="card-title">Raza: ${searchBreed.name}</h5>
                 <p class="card-text">Criado para: ${searchBreed.bred_for}</p>
+                <p class="card-text">Grupo de raza: ${searchBreed.breed_group}</p>
+                <p class="card-text">Temperamento: ${searchBreed.temperament}</p>
+                <p class="card-text">Origen: ${searchBreed.origin}</p>
                 <button onClick="del(${searchBreed.id})" class="btn btn-danger btn-block">Borrar</button>
             </div>
         </div>
